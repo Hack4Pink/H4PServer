@@ -29,7 +29,7 @@ DEBUG = True
 
 # instantiate the app
 app = Flask(__name__)
-app.config.from_object(__name__)
+#app.config.from_object(__name__)
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
@@ -83,6 +83,6 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT'))
     print("Starting app on port %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
-    
+
 '''if __name__ == '__main__':
     app.run()'''
