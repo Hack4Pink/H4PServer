@@ -1,0 +1,3 @@
+# Pink Buddy server
+
+### API

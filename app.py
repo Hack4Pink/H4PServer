@@ -7,18 +7,24 @@ import os
 APPOINTMENTS = [
     {
         'id': uuid.uuid4().hex,
+        'name': 'Patient 1',
+        'time': "15:00",
         'email': 'test@test.com',
         'doctor': 'Dr Sachin',
         'date': '5/10/2020'
     },
     {
         'id': uuid.uuid4().hex,
+        'name': 'Patient 1',
+        'time': "15:00",
         'email': 'test2@test.com',
         'doctor': 'Dr Manuel',
         'date': '5/10/2020'
     },
     {
-       'id': uuid.uuid4().hex,
+        'id': uuid.uuid4().hex,
+        'name': 'Patient 1',
+        'time': "15:00",
         'email': 'test3@test.com',
         'doctor': 'Dr Nidhi',
         'date': '5/10/2020'
@@ -51,9 +57,12 @@ def all_appointments():
         post_data = request.get_json()
         APPOINTMENTS.append({
             'id': uuid.uuid4().hex,
+            'name': post_data.get('name'),
+            'time': post_data.get('time'),
             'email': post_data.get('email'),
             'doctor': post_data.get('doctor'),
             'date': post_data.get('date')
+            
         })
         response_object['message'] = 'Appointment added!'
     else:
@@ -69,6 +78,8 @@ def single_appointment(appointment_id):
         remove_appointment(appointment_id)
         APPOINTMENTS.append({
             'id': uuid.uuid4().hex,
+            'name': post_data.get('name'),
+            'time': post_data.get('time'),
             'email': post_data.get('email'),
             'doctor': post_data.get('doctor'),
             'date': post_data.get('date')
